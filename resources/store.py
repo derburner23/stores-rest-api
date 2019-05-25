@@ -17,7 +17,7 @@ class Store(Resource):
         try:
             store.save_to_db()
         except:
-            return {"message": "An error occurred creating the store: " + sys.exc_info()[0]}, 500
+            return {"message": f'An error occurred creating the store: {sys.exc_info()[0]}'}, 500
 
         return store.json(), 201
 

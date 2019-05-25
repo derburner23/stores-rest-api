@@ -34,7 +34,7 @@ class Item(Resource):
         try:
             item.save_to_db()
         except:
-            return {"message": "An error occurred inserting the item: " + sys.exc_info()[0]}, 500
+            return {"message": f'An error occurred inserting the item: {sys.exc_info()[0]}'}, 500
 
         return item.json(), 201
 
