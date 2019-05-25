@@ -1,4 +1,5 @@
 from db import db
+from sqlalchemy import exc
 
 class ItemModel(db.Model):
     __tablename__ = 'items'
