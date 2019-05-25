@@ -1,3 +1,4 @@
+import sys
 from flask_restful import Resource, reqparse
 from models.store import StoreModel
 
@@ -16,7 +17,7 @@ class Store(Resource):
         try:
             store.save_to_db()
         except:
-            return {"message": "An error occurred creating the store."}, 500
+            return {"message": "An error occurred creating the store: " + sys.exc_info()[0]}, 500
 
         return store.json(), 201
 
