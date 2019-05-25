@@ -24,11 +24,8 @@ class ItemModel(db.Model):
         return cls.query.filter_by(name=name).first()
 
     def save_to_db(self):
-        try:
-            db.session.add(self)
-            return db.session.commit()
-        except exc.IntegrityError as e:
-            db.session().rollback()
+        db.session.add(self)
+        db.session.commit()
 
     def delete_from_db(self):
         db.session.delete(self)
